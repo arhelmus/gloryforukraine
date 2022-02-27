@@ -6,6 +6,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("request recieved")
 	w.Write([]byte("-c 100 -d 10s -l 194.54.14.186:53/UDP --print=i"))
 }
 

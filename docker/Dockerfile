@@ -25,11 +25,5 @@
 #
 
 FROM alpine/bombardier:v1.2.5
-
-# ENV FOO=/gloryforukraine/
-# WORKDIR ${FOO}
 COPY launch.sh /launch.sh
-
 ENTRYPOINT bin/sh /launch.sh
-
-# ENTRYPOINT wget https://google.com
