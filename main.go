@@ -3,7 +3,7 @@
 	import (
 		"fmt"
 		"net/http"
-		"math/rand"
+		// "math/rand"
 	)
 
 	// func getHost() string {
