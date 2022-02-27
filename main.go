@@ -12,7 +12,6 @@ import (
 	"path"
 	"os"
 	"os/exec"
-	"syscall"
 )
 
 // Download and parse targets.json
@@ -95,10 +94,20 @@ func bombardierExecutable() string {
         log.Fatal(err)
     }
 
+	executableFile, err := os.Executable()
+    if err != nil {
+        log.Fatal(err)
+    }
+    executableFolder := path.Dir(executableFile)
+
 	if _, err := os.Stat(bombardierExecutablePath(currentFolder)); err == nil {
 		return bombardierExecutablePath(currentFolder)
 	} else if _, err := os.Stat(bombardierExecutablePathInBin(currentFolder)); err == nil {
 		return bombardierExecutablePathInBin(currentFolder)
+	} else if _, err := os.Stat(bombardierExecutablePath(executableFolder)); err == nil {
+		return bombardierExecutablePath(executableFolder)
+	} else if _, err := os.Stat(bombardierExecutablePathInBin(executableFolder)); err == nil {
+		return bombardierExecutablePathInBin(executableFolder)
 	} else {
 		log.Fatal("Unable to find bombardier in: ", currentFolder)
 		return ""
@@ -111,9 +120,6 @@ func launchWithTimeout(timeout time.Duration, binary string, arguments ...string
 
 	cmd.Stdout = os.Stdout
     cmd.Stderr = os.Stderr
-
-	// This sets up a process group which we kill later.
-	cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true}
 
 	if err := cmd.Start(); err != nil {
 		return err
@@ -133,16 +139,10 @@ func launchWithTimeout(timeout time.Duration, binary string, arguments ...string
 		// this will be nil if no error
 		return err
 	case <-time.After(timeout):
-		// We created a process group above which we kill here.
-		pgid, err := syscall.Getpgid(cmd.Process.Pid)
-		if err != nil {
+		if err := cmd.Process.Kill(); err != nil {
 			return err
 		}
-		// note the minus sign
-		if err := syscall.Kill(-pgid, 15); err != nil {
-			return err
-		}
-		return fmt.Errorf("Timeout")
+		return nil
 	}
 }
 
@@ -169,7 +169,7 @@ func main() {
  ██████████░░█░░█░░██████████
   ██████████░░░░░░██████████
     █████████░░░░█████████
-      ██████████████
+      ██████████████████
              ████`,
 string("\033[1;33m"),
 "\n\nGlory for Ukraine\n",
