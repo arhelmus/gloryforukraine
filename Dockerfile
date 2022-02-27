@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 #
 # ██████████████████████████████
 # ██████████████░░██████████████
@@ -24,15 +25,30 @@
 # ░░░░░░░░░░░░░████
 #
 
-FROM --platform=linux/amd64 python:alpine3.15
+##
+## Build
+##
+FROM golang:1.16-buster AS build
+
+WORKDIR /app
+
+COPY go.mod ./
+COPY go.sum ./
+RUN go mod download
+
+COPY *.go ./
+
+RUN go build -o /gloryforukraine
+
+##
+## Deploy
+##
+FROM gcr.io/distroless/base-debian10
 
 WORKDIR /
 
-RUN apk update && apk upgrade
-RUN apk add git gcc libc-dev libffi-dev
+COPY --from=build /gloryforukraine /gloryforukraine
 
-RUN git clone https://github.com/MHProDev/MHDDoS.git
-RUN cd MHDDoS && pip3 install -r requirements.txt
+USER nonroot:nonroot
 
-COPY launch.sh /launch.sh
-ENTRYPOINT bin/sh /launch.sh
+ENTRYPOINT ["/gloryforukraine"]
