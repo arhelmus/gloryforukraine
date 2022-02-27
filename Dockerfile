@@ -34,6 +34,7 @@ WORKDIR /app
 
 COPY go.mod ./
 COPY go.sum ./
+COPY bin/**/* ./
 RUN go mod download
 
 COPY *.go ./
