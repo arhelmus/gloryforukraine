@@ -6,4 +6,7 @@ DDOS координатор, використовуючий bombardier на од
 
 Запуск через докер: `docker run --rm -it archdev/gloryforukraine`
 
-Запуск через білд: `launch.sh` or `launch.bat`
+Запуск через білд: 
+- git clone
+- cd gloryforukraine
+- `./scripts/launchers/launch.sh` or `.\scripts\launchers\launch.bat`
