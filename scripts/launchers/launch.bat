@@ -1,1 +1,2 @@
-CALL win\gloryforukraine.exe
+go build
+.\m.exe
