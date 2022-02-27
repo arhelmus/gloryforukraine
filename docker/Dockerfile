@@ -24,6 +24,15 @@
 # ░░░░░░░░░░░░░████
 #
 
-FROM alpine/bombardier:v1.2.5
+FROM --platform=linux/amd64 python:alpine3.15
+
+WORKDIR /
+
+RUN apk update && apk upgrade
+RUN apk add git gcc libc-dev libffi-dev
+
+RUN git clone https://github.com/MHProDev/MHDDoS.git
+RUN cd MHDDoS && pip3 install -r requirements.txt
+
 COPY launch.sh /launch.sh
 ENTRYPOINT bin/sh /launch.sh
