@@ -115,6 +115,34 @@ func launchWithTimeout(timeout time.Duration, binary string, arguments ...string
 }
 
 func main() {
+	fmt.Println(string("\033[33m"), `
+██████████████████████████████
+██████████████░░██████████████
+████░████████░░░░████████░████
+████░░░██████░░░░██████░░░████
+████░█░░░█████░░██████░░█░████
+████░██░░█████░░█████░░██░████
+████░███░░████░░████░░███░████
+████░███░░████░░████░░███░████
+████░███░░████░░████░░███░████
+████░████░░███░░███░░████░████
+████░████░░███░░███░░████░████
+████░██░░░███░░░░███░░░██░████
+████░██░░███░░██░░███░░██░████
+████░██░░░██████████░░░██░████
+████░████░░░░░██░░░░░████░████
+████░█████░░██░░██░░█████░████
+████░░░░░░░░░░░░░░░░░░░░░░████
+██████████░░██░░██░░██████████
+ ██████████░░█░░█░░██████████
+  ██████████░░░░░░██████████
+    █████████░░░░█████████
+      ██████████████
+             ████`,
+string("\033[1;33m"),
+"\n\nGlory for Ukraine\n",
+string("\033[0m"))
+
 	rand.Seed(time.Now().UnixNano())
 
 	var cachedConfigs []string
@@ -131,6 +159,9 @@ func main() {
 		}
 
 		// ensure process timeout is equal to requested timeout from tool
-		launchWithTimeout(time.Second * 10, bombardierExecutable(), randomItem(cachedConfigs), "--connections=1000")
+		err = launchWithTimeout(time.Second * 10, bombardierExecutable(), randomItem(cachedConfigs), "--connections=1000")
+		if err != nil {
+			fmt.Println(err)
+		}
 	}
 }
