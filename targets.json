@@ -29,5 +29,7 @@
   "https://www.belneftekhim.by",
   "http://www.bellegprom.by",
   "https://www.energo.by",
-  "http://belres.by"
+  "http://belres.by",
+  "https://3dsec.sberbank.ru/payment/rest/getOrderStatusExtended.do?userName=test&password=test",
+  "https://www.cbr-xml-daily.ru/"
 ]
