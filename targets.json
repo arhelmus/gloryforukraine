@@ -12,7 +12,10 @@
   "https://tass.ru",
   "https://tvzvezda.ru",
   "https://cbr.ru/",
-  "https://securepayments.sberbank.ru/payment/rest/getOrderStatusExtended.do?userName=test&password=test"
+  "https://3dsec.sberbank.ru/payment/rest/getOrderStatusExtended.do?userName=test&password=test",
+  "https://securepayments.sberbank.ru/payment/rest/getOrderStatusExtended.do?userName=test&password=test",
+  "https://www.cbr-xml-daily.ru/",
+  "http://www.cbr.ru/DailyInfoWebServ/DailyInfo.asmx?WSDL",
 
   "http://www.government.by",
   "https://www.mil.by",
