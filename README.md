@@ -22,5 +22,6 @@ DDOS координатор, використовуючий bombardier на од
 2. Створіть новий апчик в Create > Apps
 3. Виберіть Docker Hub
 4. в Image введіть: `archdev/gloryforukraine`, tag - залишіть пустим (`latest`) 
-5. Виберіть Регіон - можна Європу або Азію - будь який
-6. Finalise and Launch - виберіть аккаунт Pro - і в Containers: Pro - штук 10 має вистачити
+5. ОБОВ'ЯЗКОВО: Type > **Worker** (по замовчуванню там Web Service) 
+6. Виберіть Регіон - можна Європу або Азію - будь який
+7. Finalise and Launch - виберіть аккаунт Pro - і в Containers: Pro - штук 10 має вистачити
