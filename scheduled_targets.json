@@ -1,0 +1,30 @@
+{
+    "timetable": [
+        {
+            "start": "now",
+            "groups": [
+                "test #1",
+                "test #3"
+            ]
+        },
+        {
+            "start": "Mon, 28 Feb 2022 21:04:00 GMT",
+            "end": "Mon, 28 Feb 2022 21:53:00 GMT",
+            "groups": [
+                "test #2"
+            ]
+        }
+    ],
+    "targets": [
+        {
+            "group": "test #1",
+            "type": "url",
+            "url": "https://ya.ru"
+        },
+        {
+            "group": "test #2",
+            "type": "url",
+            "url": "https://cbr.ru"
+        }
+    ]
+}

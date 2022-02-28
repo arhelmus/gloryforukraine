@@ -1,2 +1,0 @@
-go build
-.\m.exe
