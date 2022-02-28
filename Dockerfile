@@ -44,4 +44,4 @@ COPY package.json package.json
 
 RUN npm ci --prod
 
-CMD ["node", "src/app.mjs"]
+CMD node --max-old-space-size=${NODE_MAX_OLD_SPACE_SIZE:=1400} src/app.mjs

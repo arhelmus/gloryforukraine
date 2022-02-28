@@ -70,7 +70,7 @@ function bombardierExecutablePath() {
 function processTarget(target) {
     if (target.type == "url") {
         const args = [
-            ...[target.method ? `--method=${target.method}` : null].filter(Boolean),
+            ...[target.method ? `--method=${target.method.toUpperCase()}` : null].filter(Boolean),
             `--connections=${target.connections || 1000}`,
             `--duration=${target.duration || 10}s`,
             "--format=json",
@@ -145,10 +145,16 @@ function ToTarget(now, schedule, target) {
         return null;
     }
 
+    if (target.method && ["get", "post", "put", "delete", "patch", "head", "options", "trage"].indexOf(target.nethod) == -1) {
+        console.error(`target: unknown target method ${target.method}`);
+        return null;
+    }
+
     return {
         group: target.group || "default",
         type: target.type,
         url: target.url,
+        method: target.method || "get",
     };
 }
 
