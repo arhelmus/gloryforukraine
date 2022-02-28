@@ -12,6 +12,7 @@
   "https://tass.ru",
   "https://tvzvezda.ru",
   "https://cbr.ru/",
+  "http://www.cbr.ru/DailyInfoWebServ/DailyInfo.asmx?WSDL"
 
   "http://www.government.by",
   "https://www.mil.by",
@@ -29,6 +30,5 @@
   "https://www.belneftekhim.by",
   "http://www.bellegprom.by",
   "https://www.energo.by",
-  "http://belres.by",
-  "http://www.cbr.ru/DailyInfoWebServ/DailyInfo.asmx?WSDL"
+  "http://belres.by"
 ]
