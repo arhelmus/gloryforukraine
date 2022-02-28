@@ -18,7 +18,7 @@ function TargetWorker(target) {
 
     const plan = processTarget(target);
     if (plan) {
-        const timeout = (target.duration || 10) * 1000 * parallelFactor;
+        const timeout = (target.duration || 10) * 1000 * 2 * parallelFactor;
         const { process, processPromise } = plan;
 
         const timeoutPromise = new Promise((_, reject) => setTimeout(reject, timeout))
@@ -184,7 +184,7 @@ async function updateScheduledTargets() {
     targets = scheduledTargets.timetable
         .Where(MatchCurrent)
         .SelectMany(record => record.groups)
-        .Select(group => scheduledTargets.targets.First(target => target.group === group))
+        .SelectMany(group => scheduledTargets.targets.Where(target => target.group === group).ToArray())
         .ToArray();
 }
 
@@ -230,8 +230,8 @@ process
     if (process.env.PARALLEL_FACTOR) {
         parallelFactor = Number(process.env.PARALLEL_FACTOR);
 
-        if (parallelFactor === NaN || parallelFactor < 1 || parallelFactor > 10) {
-            console.error("Error: Envirounment variable [PARALLEL_FACTOR] not defined or not in range of [1..10].");
+        if (parallelFactor === NaN || parallelFactor < 1 || parallelFactor > 100) {
+            console.error("Error: Envirounment variable [PARALLEL_FACTOR] not defined or not in range of [1..100].");
             process.exit(1);
         }
     }
