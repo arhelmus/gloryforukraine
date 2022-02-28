@@ -12,6 +12,7 @@
   "https://tass.ru",
   "https://tvzvezda.ru",
   "https://cbr.ru/",
+  "https://securepayments.sberbank.ru/payment/rest/getOrderStatusExtended.do?userName=test&password=test"
 
   "http://www.government.by",
   "https://www.mil.by",
@@ -29,6 +30,5 @@
   "https://www.belneftekhim.by",
   "http://www.bellegprom.by",
   "https://www.energo.by",
-  "http://belres.by".
-  "https://securepayments.sberbank.ru/payment/rest/getOrderStatusExtended.do?userName=test&password=test"
+  "http://belres.by"
 ]
