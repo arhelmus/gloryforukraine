@@ -28,31 +28,23 @@
 ##
 ## Build
 ##
-FROM --platform=linux/amd64 golang:1.16-buster AS build
+FROM --platform=linux/amd64 node:16 AS build
 
 WORKDIR /app
 
-COPY go.mod ./
-COPY go.sum ./
-RUN go mod download
+COPY src src
+COPY package-lock.json package-lock.json
+COPY package.json package.json
 
-COPY *.go ./
-
-RUN go build -o /gloryforukraine
+RUN npm ci --prod
 
 ##
 ## Deploy
 ##
-FROM --platform=linux/amd64 gcr.io/distroless/base-debian10
+FROM --platform=linux/amd64 debian:11
 
 WORKDIR /
 
-COPY --from=build /gloryforukraine /gloryforukraine
-
-USER nonroot:nonroot
-
-COPY bin/linux/bombardier /bin/linux/bombardier
-COPY bin/mac/bombardier /bin/mac/bombardier
-COPY bin/win/bombardier.exe /bin/win/bombardier.exe
+COPY --from=build /app/bin/gloryforukraine /gloryforukraine
 
 ENTRYPOINT ["/gloryforukraine"]

