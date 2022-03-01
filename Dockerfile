@@ -26,13 +26,11 @@
 #
 
 ##
-## Deploy
+## Build
 ##
-FROM --platform=linux/amd64 node:16
+FROM --platform=linux/amd64 node:16 AS build
 
-WORKDIR /
-
-USER root:root
+WORKDIR /app
 
 COPY src src
 COPY package-lock.json package-lock.json
@@ -40,4 +38,13 @@ COPY package.json package.json
 
 RUN npm ci --prod
 
-CMD bin/glorytoukraine
+##
+## Deploy
+##
+FROM --platform=linux/amd64 debian:11
+
+WORKDIR /
+
+COPY --from=build /app/bin/gloryforukraine /gloryforukraine
+
+ENTRYPOINT ["/gloryforukraine"]
