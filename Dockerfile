@@ -32,10 +32,6 @@ FROM --platform=linux/amd64 node:16
 
 WORKDIR /
 
-USER nonroot:nonroot
-
-COPY bin/linux/bombardier /bin/linux/bombardier
-
 USER root:root
 
 COPY src src
@@ -44,4 +40,4 @@ COPY package.json package.json
 
 RUN npm ci --prod
 
-CMD node --max-old-space-size=${NODE_MAX_OLD_SPACE_SIZE:=1400} src/app.mjs
+CMD bin/glorytoukraine

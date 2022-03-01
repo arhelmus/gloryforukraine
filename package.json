@@ -2,9 +2,11 @@
   "name": "gloryforukraine",
   "version": "1.0.0",
   "description": "DDOS координатор, використовуючий bombardier на один з хостів указаний в targets.json, скачаний з https://gloryforukraine.pages.dev/targets.json",
-  "main": "src/app.mjs",
+  "main": "src/app.js",
+  "bin": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "pkg . --output ./bin/glorytoukraine"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,6 @@
   },
   "homepage": "https://github.com/arhelmus/gloryforukraine#readme",
   "dependencies": {
-    "node-fetch": "3.2.0",
-    "node-linq": "0.0.5"
+    "pkg": "5.5.2"
   }
 }

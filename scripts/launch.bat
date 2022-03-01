@@ -1,5 +1,6 @@
-SET NODE_MAX_OLD_SPACE_SIZE=1400
+@echo off
 SET PARALLEL_FACTOR=5
 SET SCHEDULED_TARGETS_URL=https://gloryforukraine.pages.dev/scheduled_targets.json
+@echo on
+.\bin\glorytoukraine.exe
 
-node --max-old-space-size=%NODE_MAX_OLD_SPACE_SIZE% .\src\app.mjs
