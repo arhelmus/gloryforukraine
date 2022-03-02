@@ -3,8 +3,6 @@
         {
             "start": "now",
             "groups": [
-                "global:RU",
-                "global:BY",
                 "aero:RU"
             ]
         }
