@@ -3,8 +3,7 @@
         {
             "start": "now",
             "groups": [
-                "global:RU",
-                "global:BY"
+                "aero:RU"
             ]
         }
     ],
@@ -173,6 +172,66 @@
             "group": "global:BY",
             "type": "url",
             "url": "http://belres.by"
+        },
+        {
+            "group": "aero:RU",
+            "type": "url",
+            "url": "http://195.218.193.151:80"
+        },
+        {
+            "group": "aero:RU",
+            "type": "url",
+            "url": "http://195.218.193.151:443"
+        },
+        {
+            "group": "aero:RU",
+            "type": "url",
+            "url": "http://87.245.150.33:80"
+        },
+        {
+            "group": "aero:RU",
+            "type": "url",
+            "url": "http://87.245.150.33:5353"
+        },
+        {
+            "group": "aero:RU",
+            "type": "url",
+            "url": "http://87.245.150.33:8008"
+        },
+        {
+            "group": "aero:RU",
+            "type": "url",
+            "url": "http://87.245.150.33:8080"
+        },
+        {
+            "group": "aero:RU",
+            "type": "url",
+            "url": "http://62.117.96.157:264"
+        },
+        {
+            "group": "aero:RU",
+            "type": "url",
+            "url": "http://188.126.62.6:123"
+        },
+        {
+            "group": "aero:RU",
+            "type": "url",
+            "url": "http://188.126.62.6:1723"
+        },
+        {
+            "group": "aero:RU",
+            "type": "url",
+            "url": "http://188.126.62.6:9443"
+        },
+        {
+            "group": "aero:RU",
+            "type": "url",
+            "url": "http://188.126.62.6:32400"
+        },
+        {
+            "group": "aero:RU",
+            "type": "url",
+            "url": "http://195.218.193.141:25"
         }
     ]
 }
