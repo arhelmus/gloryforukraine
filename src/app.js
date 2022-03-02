@@ -12,6 +12,27 @@ let targets = [];
 let targetWorkers = [];
 let scheduledTargets = {};
 
+function loadConfig() {
+    const configFileName = "config.env";
+
+    if (!fs.existsSync(configFileName)) {
+        return;
+    }
+
+    console.log("Config file found");
+
+    const content = fs.readFileSync(configFileName).toString();
+    for (let line of content.split("\n")) {
+        if (!line.includes("=")) {
+            continue;
+        }
+        const [key, value] = line.trim().split("=").map(v => v.trim());
+        if (["PARALLEL_FACTOR", "SCHEDULED_TARGETS_URL"].includes(key)) {
+            process.env[key] = value;
+        }
+    }
+}
+
 function TargetWorker(target) {
     this.promise = null;
 
@@ -303,6 +324,8 @@ process
         console.error("Error: preparing Bombardier executable.", ">", ex.message);
         process.exit(1);
     }
+
+    loadConfig();
 
     if (process.env.PARALLEL_FACTOR) {
         parallelFactor = Number(process.env.PARALLEL_FACTOR);

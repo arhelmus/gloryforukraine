@@ -6,7 +6,8 @@
   "bin": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "pkg . --output ./bin/gloryforukraine"
+    "postinstall": "pkg . --output ./bin/gloryforukraine",
+    "release": "pkg . --out-path ./release/"
   },
   "repository": {
     "type": "git",
