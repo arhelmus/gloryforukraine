@@ -78,7 +78,7 @@ function bombardierExecutableRelativePath() {
 }
 
 function bombardierExecutablePath() {
-    return path.join(path.resolve(), "bin", bombardierExecutableRelativePath());
+    return path.join(path.resolve(), bombardierExecutableRelativePath());
 }
 
 function processTarget(target) {
@@ -215,7 +215,7 @@ async function checkBombardierExecutableFile() {
         return;
     }
 
-    let executablePath = "bin";
+    let executablePath = "";
     let executableUrl = "";
 
     switch (process.platform) {
