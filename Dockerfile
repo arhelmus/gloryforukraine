@@ -43,7 +43,7 @@ RUN npm ci --prod
 ##
 FROM --platform=linux/amd64 debian:11
 
-WORKDIR /
+WORKDIR /app
 
 COPY --from=build /app/bin/gloryforukraine /gloryforukraine
 
