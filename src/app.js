@@ -159,7 +159,7 @@ function ToTarget(now, schedule, target) {
         return null;
     }
 
-    if (target.method && ["get", "post", "put", "delete", "patch", "head", "options", "trage"].indexOf(target.nethod) == -1) {
+    if (target.method && ["get", "post", "put", "delete", "patch", "head", "options", "trage"].indexOf(target.method) == -1) {
         console.error(`target: unknown target method ${target.method}`);
         return null;
     }
