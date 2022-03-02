@@ -4,9 +4,15 @@ DDOS координатор, використовуючий bombardier на од
 
 ## Як використати
 
+Рабоча станція (Windows, Linux, MacOS):
+ - https://github.com/arhelmus/gloryforukraine/releases/download/v0.1.0/gloryforukraine.zip
+
+Docker:
+
 Запуск через докер: `docker run --env SCHEDULED_TARGETS_URL=https://gloryforukraine.pages.dev/scheduled_targets.json --env PARALLEL_FACTOR=5 --cpus=".7" --rm -it archdev/gloryforukraine`
 
-Запуск через білд:
+Билд кода:
+
 - install NodeJS 16+
 - git clone
 - cd gloryforukraine
